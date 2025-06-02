@@ -1,16 +1,14 @@
-conjunto = list(map(int,input()))
-soma = conjunto[0]
+def SomaMaiorConjunto(conjunto:list) -> int:
+    soma = 0 #conjunto vazio
+    Nconjunto = []
+    for i in conjunto: #se tiver qualquer numero positivo soma
+        if i > 0:
+            soma += i
+    return soma
 
-totalconjuntos = 2 ** len(conjunto)
-i = 0
-while i <= len(conjunto):
-    sub = conjunto[i]
-    if sub > soma:
-        soma = sub
-    if i == len(conjunto):
-        i = 0
-        sub = conjunto[i] + conjunto[i+1]
-    i += 1
-    # if conjunto[0] + conjunto[1] + conjunto[2] > soma:
-    #     soma = 
-    #SOMAR TODOS OS POSITIVOS   
+def main():
+    conjunto = list(map(int,input().split()))
+    soma = SomaMaiorConjunto(conjunto)
+    print(soma)
+
+main()
