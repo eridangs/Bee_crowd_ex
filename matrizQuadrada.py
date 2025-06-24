@@ -7,7 +7,7 @@ def gera(n):
 
     for valor_interno in range(1,(n + 1) // 2 + 1): # vai contemplar todos os numeros diferentes que a matriz terá
 
-        for j in range(ci, cf + 1): 
+        for j in range(ci, cf + 1):
 
             matriz[li][j] = matriz[lf][j] = valor_interno #cima e baixo
 
