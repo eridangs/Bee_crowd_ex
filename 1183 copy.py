@@ -3,15 +3,12 @@ def calcula(op,matriz):
     soma = 0
 
 
-    for i in range(len(matriz)):
-        if i == 11:
-            break
-        else:
-            for j in range(len(matriz[0])):
-                if j >= coluna:
-                    soma+= matriz[i][j]
-                if j == 11:
-                    coluna += 1
+for i in range(len(matriz)):
+    for j in range(len(matriz[0])):
+        if j >= coluna:
+            print(f'{matriz[i][j]}')
+        if j == 11:
+            coluna += 1
 
     if op == "M":
         soma /= 66
