@@ -1,42 +1,29 @@
 def geraM(n):
-    matriz = [[0]* n for _ in range(n)]
-
-    ci = 0 # linha inicial e coluna inicial
-    lf = cf = n - 1 # linha final e coluna final
+    M = [[0]* n for _ in range(n)]
+    
     for i in range(n):
+        k = 1
         for j in range(i,n):
-            matriz[j][i] = j-i+1
-            matriz[i][j] = j-i+1
-            #print(f'matriz[{i}][{j}] {matriz[i][j]}\nmatriz[{j}][{i}] {matriz[j][i]}')
-        # li = 1
-        # for lin in range(valormatriz,valormatriz+1):
-        #     for linha in range(len(matriz)):
-        #         matriz[lin][linha] = li
-        #     li += 1
-        #     for colu in range(len(matriz)):
-        #         matriz[colu][lin] = li
-            
-    return matriz
+            M[i][j] = M[j][i] = k
+            k += 1
 
+    return M
 
 def imprime(matriz):
     for i in range(len(matriz)):
         for j in range(len(matriz)):
-            if j != len(matriz[0]) - 1:
-                print(f"{matriz[i][j]:3}", end=" ")
+            if j == len(matriz[0]) - 1:
+                print(f"{matriz[i][j]:>3}", end="")
             else:
-                print(f"{matriz[i][j]:3}", end="")
+                print(f"{matriz[i][j]:>3}", end=" ")
         print()
     print()
-
-
+    
 def main():
-    n = 1
+    n = int(input())
     while n != 0:
-        n = int(input())
-
         matriz = geraM(n)
-
         imprime(matriz)
+        n = int(input())
 
 main()
