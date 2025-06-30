@@ -1,3 +1,14 @@
+def mostrarMaior(numeros:list, vezes_repetidos:list, maiorquantiarepetida:int):
+    mostrar = []
+    for i in range(len(vezes_repetidos)):
+        if vezes_repetidos[i] == maiorquantiarepetida:
+            mostrar.append(numeros[i])
+
+    for i in mostrar:
+        print(i)
+
+#---------------------------------------------------------
+
 def descobreM(M):
     n = len(M)
     maisrepetiu = 0
@@ -10,27 +21,21 @@ def descobreM(M):
             if numero not in repetidos:
                 repetidos.append(numero)
                 repetiu = 0
+
                 for k in range(n):
                     for l in range(n):
                         numerocomparado = M[k][l]
-                        print(f'numero: {numero} é igual a {numerocomparado}?')
 
                         if numero == numerocomparado:
                             repetiu += 1
-                            print(f'sim: {repetiu}')
 
-                print(f'quantas vezes {numero} repetiu: {repetiu}')
                 vezesrepetido.append(repetiu)
             if repetiu > maisrepetiu:
                 maisrepetiu = repetiu
-                
-    print(f'mais vezes repetido = {maisrepetiu}')
-    print(repetidos)
-    print(vezesrepetido)
 
-    return 0
+    return repetidos, vezesrepetido, maisrepetiu
 
-#-------------------------------------------
+#------------------------------------------------------------
 
 def geraM(m):
     M = []
@@ -41,24 +46,12 @@ def geraM(m):
     
     return M
 
-#---------------------------------------------
+#------------------------------------------------------------
 
 def main():
     ordem = int(input())
     M = geraM(ordem)
-    p = descobreM(M)
-    print(f'{p}')
+    numeros, vezes_cada, maior = descobreM(M)
+    mostrarMaior(numeros,vezes_cada,maior)
 
 main()
-        # for j in range(n):
-        #     for k in range(n): #confirmação interna
-        #         print(f'{M[j][k]} == {repete}\n')
-        #         if M[j][k] == repete:
-        #             repetiu += 1
-        #             print(f'quantas vezes repetiu: {repetiu}')
-
-        #     print(f'antes: {maisrepetiu}\n')
-
-        #     if repetiu > maisrepetiu:
-        #         maisrepetiu = repetiu
-        #         print(f'depois: {maisrepetiu}\n')
