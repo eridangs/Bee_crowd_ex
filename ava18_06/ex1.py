@@ -5,7 +5,7 @@ def gerarM(n):
     lf = cf = n - 1
 
 
-    for camada in range(n // 2 +1):
+    for camada in range(n // 2 + 1):
 
         #borda superior
         for j in range(ci, cf + 1):
@@ -20,17 +20,21 @@ def gerarM(n):
             valor += 1
         
         # borda inferior
-        for l in range(cf, ci - 1, -1):
+        for l in range(cf - 1, ci - 1, -1):
+            print(f'M{lf}{l}')
             M[lf][l] = valor
             valor += 1
 
         #borda esquerda
         for m in range(lf - 1, li, -1):
-            valor[m][ci] = valor
+            print(f'M{m}{ci}')
+            M[m][ci] = valor
             valor += 1
 
         li += 1
         ci += 1
+        lf -= 1
+        cf -= 1
 
     return M
 #------------------------------------------
